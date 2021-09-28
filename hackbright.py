@@ -80,7 +80,7 @@ def get_grade_by_github_title(github, title):
     """Print grade student received for a project."""
     
     QUERY = """
-    SELECT grade
+    SELECT student_github, grade
     FROM grades
     WHERE student_github = :student_github AND project_title = :project_title
     """
@@ -89,7 +89,7 @@ def get_grade_by_github_title(github, title):
 
     row = db_cursor.fetchone()
 
-    print(f"github: {row[0]} \ngrade: {row[0]}")
+    print(f"github: {row[0]} \ngrade: {row[1]}")
 
 
 def assign_grade(github, title, grade):
